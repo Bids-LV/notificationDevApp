@@ -3,17 +3,18 @@ import { Text, View, Button, Platform } from "react-native";
 import Constants from "expo-constants";
 import * as Notifications from "expo-notifications";
 import { useNavigation } from "@react-navigation/native";
-
-
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export default function HomeScreen() {
   const navigation = useNavigation();
-  const [expoPushToken, setExpoPushToken] = useState("");
-  const [notification, setNotification] = useState(false);
-  var notificationListener = useRef();
-  const responseListener = useRef();
 
- 
+  async function setToken() {
+    console.log(
+      "token is set: ",
+      await AsyncStorage.getItem("notificationToken")
+    );
+  }
+
   return (
     <View
       style={{
@@ -23,6 +24,13 @@ export default function HomeScreen() {
         marginTop: 250,
       }}
     >
+      <Button
+        title={"setToken"}
+        onPress={() => {
+          setToken();
+        }}
+      />
+      <Button title={"clearasync"} onPress={() => AsyncStorage.clear()} />
       {/* <GetForegroundListiner /> */}
       <Text style={{ fontSize: 50 }}> firstscreem</Text>
     </View>

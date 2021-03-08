@@ -1,7 +1,6 @@
 import * as Notifications from "expo-notifications";
 import React, { useRef } from "react";
 import getPushToken from "./registerForNotifications";
-
 Notifications.setNotificationHandler({
   handleNotification: async () => ({
     shouldShowAlert: true,

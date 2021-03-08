@@ -2,9 +2,10 @@ import * as Permissions from "expo-permissions";
 import * as Notifications from "expo-notifications";
 import { Alert, Platform } from "react-native";
 import Constants from "expo-constants";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 async function getPushToken(config) {
-  console.log("config: ", config);
+  // console.log("config: ", config);
   let token;
   if (Constants.isDevice) {
     const { status: existingStatus } = await Permissions.getAsync(
@@ -16,63 +17,53 @@ async function getPushToken(config) {
       finalStatus = status;
     }
     if (finalStatus !== "granted") {
-      // token = (await Notifications.getExpoPushTokenAsync()).data;
       console.log(token, "NOT GRANTED");
 
-      // Store.Store.dispatch({
-      //   type: FIRST_LAUNCH,
-      //   payload: false,
-      // });
       return;
     }
 
     token = (await Notifications.getExpoPushTokenAsync()).data;
     console.log(token);
-    // only send token in first load
-    // if(Store.Store.getState().storage.firstLaunch){
-    const url = config.notificationURL;
 
-    const query =
-      `
-            mutation MyMutation {
-              sendClientNotificationToken(platform: "` +
-      Platform.OS +
-      `",token:"` +
-      token +
-      `", partnerID: "kristapatest") {
-                errorMessage
-                success
-              }
-            }
-        `;
 
-    fetch(url, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/graphql",
-        "x-api-key": config.notificationAPIKEY || "",
-      },
-      body: JSON.stringify({ query }),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-      });
-    // }else{
-    //   // not first launch
-    // }
+    (async function () {
+      const storedToken = await AsyncStorage.getItem("notificationToken");
+    
 
-  //   Store.Store.dispatch({
-  //     type: FIRST_LAUNCH,
-  //     payload: false,
-  //   });
-  // } else {
-  //   alert("Must use physical device for Push Notifications");
+      if (storedToken !== null) {
+        console.log("token is not needed to be sent");
+      } else {
+        const url = config.notificationURL;
 
-  //   Store.Store.dispatch({
-  //     type: FIRST_LAUNCH,
-  //     payload: false,
-  //   });
+        const query =
+          `
+                mutation MyMutation {
+                  sendClientNotificationToken(platform: "` +
+          Platform.OS +
+          `",token:"` +
+          token +
+          `", partnerID: "kristapatest") {
+                    errorMessage
+                    success
+                  }
+                }
+            `;
+
+        fetch(url, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/graphql",
+            "x-api-key": config.notificationAPIKEY || "",
+          },
+          body: JSON.stringify({ query }),
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            AsyncStorage.setItem("notificationToken", JSON.stringify(data));
+            // console.log(data);
+          });
+      }
+    })();
   }
 
   if (Platform.OS === "android") {
