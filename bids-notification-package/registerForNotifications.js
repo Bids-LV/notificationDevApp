@@ -19,10 +19,10 @@ async function getPushToken(config) {
       // token = (await Notifications.getExpoPushTokenAsync()).data;
       console.log(token, "NOT GRANTED");
 
-      Store.Store.dispatch({
-        type: FIRST_LAUNCH,
-        payload: false,
-      });
+      // Store.Store.dispatch({
+      //   type: FIRST_LAUNCH,
+      //   payload: false,
+      // });
       return;
     }
 
@@ -62,17 +62,17 @@ async function getPushToken(config) {
     //   // not first launch
     // }
 
-    Store.Store.dispatch({
-      type: FIRST_LAUNCH,
-      payload: false,
-    });
-  } else {
-    alert("Must use physical device for Push Notifications");
+  //   Store.Store.dispatch({
+  //     type: FIRST_LAUNCH,
+  //     payload: false,
+  //   });
+  // } else {
+  //   alert("Must use physical device for Push Notifications");
 
-    Store.Store.dispatch({
-      type: FIRST_LAUNCH,
-      payload: false,
-    });
+  //   Store.Store.dispatch({
+  //     type: FIRST_LAUNCH,
+  //     payload: false,
+  //   });
   }
 
   if (Platform.OS === "android") {
