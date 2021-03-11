@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "451249225286",
+    "project_id": "bids-package-dev-template",
+    "storage_bucket": "bids-package-dev-template.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:451249225286:android:1052cb70d6598f1c431447",
+        "android_client_info": {
+          "package_name": "com.bidslatvija.NotificationTemplate"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "451249225286-o6jbkpfaq38sqo0ums72v87f0tanlkte.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAV0G95HGHZd23jYacDJEk9shkAV1hmWZI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "451249225286-o6jbkpfaq38sqo0ums72v87f0tanlkte.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "451249225286-o7d5730a3u24mii84sfapqgn1cjse9e3.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.bidslatvija.NotificationTemplate"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

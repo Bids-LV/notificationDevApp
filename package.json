@@ -8,6 +8,7 @@
     "eject": "expo eject"
   },
   "dependencies": {
+    "@bidslatvia/bids-notification-package": "^1.2.2",
     "@react-native-async-storage/async-storage": "^1.14.1",
     "@react-native-community/masked-view": "0.1.10",
     "@react-navigation/bottom-tabs": "^5.11.7",
@@ -15,6 +16,7 @@
     "@react-navigation/stack": "^5.13.0",
     "expo": "^40.0.0",
     "expo-constants": "^9.3.5",
+    "expo-firebase-analytics": "~2.6.0",
     "expo-notifications": "~0.8.2",
     "expo-permissions": "~10.0.0",
     "expo-status-bar": "~1.0.3",

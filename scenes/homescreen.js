@@ -4,7 +4,7 @@ import Constants from "expo-constants";
 import * as Notifications from "expo-notifications";
 import { useNavigation } from "@react-navigation/native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-
+import * as Analytics from "expo-firebase-analytics";
 export default function HomeScreen() {
   const navigation = useNavigation();
 
@@ -13,6 +13,14 @@ export default function HomeScreen() {
       "token is set: ",
       await AsyncStorage.getItem("notificationToken")
     );
+  }
+
+  async function anal() {
+    await Analytics.logEvent("ButtonTapped", {
+      name: "settings",
+      screen: "profile",
+      purpose: "Opens the internal settings",
+    });
   }
 
   return (
@@ -30,7 +38,7 @@ export default function HomeScreen() {
           setToken();
         }}
       />
-      <Button title={"clearasync"} onPress={() => AsyncStorage.clear()} />
+      <Button title={"anal"} onPress={() => anal()} />
       {/* <GetForegroundListiner /> */}
       <Text style={{ fontSize: 50 }}> firstscreem</Text>
     </View>
