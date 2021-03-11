@@ -51,5 +51,8 @@ export const config = {
     // notificationAPIKEY: Constants.manifest.extra.apiKey,
     // dark (FOR LIGHT THEMES), light (DARK THEMES), auto
     statusBar: "dark"
+    
+    // MANATORY FOR ANALYTICS
+      uploadAllNotifications: true,
   }
 ````

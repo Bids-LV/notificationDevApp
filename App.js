@@ -6,8 +6,7 @@ import Constants from "expo-constants";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Scenes from "./scenes/index";
-import { setNotificationCategoryAsync } from "expo-notifications";
-import GetForegroundListiner from "./bids-notification-package/listeners";
+import GetForegroundListiner from "@bidslatvia/bids-notification-package";
 const Tab = createBottomTabNavigator();
 import { navigationRef } from "./rootnavigation";
 import * as RootNavigation from "./rootnavigation.js";
@@ -17,7 +16,7 @@ export default function App() {
       <GetForegroundListiner
         navigation={RootNavigation}
         config={config}
-   
+       
       />
       <NavigationContainer ref={navigationRef}>
         <Tab.Navigator>

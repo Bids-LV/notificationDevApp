@@ -3,7 +3,7 @@ import * as Notifications from "expo-notifications";
 import { Alert, Platform } from "react-native";
 import Constants from "expo-constants";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-
+import * as Analytics from "expo-firebase-analytics"; 
 async function getPushToken(config) {
   // console.log("config: ", config);
   let token;
@@ -25,12 +25,10 @@ async function getPushToken(config) {
     token = (await Notifications.getExpoPushTokenAsync()).data;
     console.log(token);
 
-
     (async function () {
       const storedToken = await AsyncStorage.getItem("notificationToken");
-    
 
-      if (storedToken !== null) {
+      if (storedToken !== null && config.uploadAllNotifications === false) {
         console.log("token is not needed to be sent");
       } else {
         const url = config.notificationURL;
@@ -60,7 +58,11 @@ async function getPushToken(config) {
           .then((response) => response.json())
           .then((data) => {
             AsyncStorage.setItem("notificationToken", JSON.stringify(data));
-            // console.log(data);
+            Analytics.logEvent("Notification_token_sent", {
+              name: "TOKEN",
+              screen: "appJS",
+              purpose: "Track user locations",
+            });
           });
       }
     })();

@@ -995,10 +995,10 @@
     "globals" "^11.1.0"
     "lodash" "^4.17.19"
 
-"@bidslatvia/bids-notification-package@^1.2.2":
-  "integrity" "sha512-4L3vVkXZ0hwlgQ3lGTMlvcSeQuNR8p7SP9O/EDQPWkFDbE0i22CCIzV26BoCaJxDuzTufRumGOGPtgjDoBqAtg=="
-  "resolved" "https://registry.npmjs.org/@bidslatvia/bids-notification-package/-/bids-notification-package-1.2.2.tgz"
-  "version" "1.2.2"
+"@bidslatvia/bids-notification-package@^1.2.4":
+  "integrity" "sha512-iXWABpLc+neG2bKZzGd6au3oV7/wq8vDIYWH7wTOqbia8nuik0cya1+UVal2ulLWHJ62EXoss8yiGo/TElXwuQ=="
+  "resolved" "https://registry.npmjs.org/@bidslatvia/bids-notification-package/-/bids-notification-package-1.2.4.tgz"
+  "version" "1.2.4"
 
 "@cnakazawa/watch@^1.0.3":
   "integrity" "sha512-v9kIhKwjeZThiWrLmj0y17CWoyddASLj9O2yvbZkbvw/N3rWOYy9zkV66ursAoVr0mV15bL8g0c4QZUE6cdDoQ=="
@@ -2146,8 +2146,6 @@
   "version" "0.1.3"
 
 "aproba@^1.0.3":
-  "integrity" "sha512-Y9J6ZjXtoYh8RnXVCMOU/ttDmk1aBjunq9vO0ta5x85WDQiQfUF9sIPBITdbiiIVcBo03Hi3jMxigBtsddlXRw=="
-  "resolved" "https://registry.npmjs.org/aproba/-/aproba-1.2.0.tgz"
   "version" "1.2.0"
 
 "aproba@^2.0.0":
@@ -7513,8 +7511,6 @@
     "safe-buffer" "~5.1.0"
 
 "string-width@^1.0.1":
-  "integrity" "sha1-EYvfW4zcUaKn5w0hHgfisLmxB9M="
-  "resolved" "https://registry.npmjs.org/string-width/-/string-width-1.0.2.tgz"
   "version" "1.0.2"
   dependencies:
     "code-point-at" "^1.0.0"
@@ -7792,8 +7788,6 @@
   "version" "1.0.0"
 
 "tough-cookie@~2.5.0":
-  "integrity" "sha512-nlLsUzgm1kfLXSXfRZMc1KLAugd4hqJHDTvc2hDIwS3mZAfMEuMbc03SujMF+GEcpaX/qboeycw6iO8JwVv2+g=="
-  "resolved" "https://registry.npmjs.org/tough-cookie/-/tough-cookie-2.5.0.tgz"
   "version" "2.5.0"
   dependencies:
     "psl" "^1.1.28"
