@@ -1,15 +1,17 @@
-import Constants from "expo-constants";
+import Constants from 'expo-constants'
+import { NativeModules } from 'react-native'
 
 export const config = {
-  parentURL: "https://www.virsi.lv/",
+  parentURL: 'https://www.virsi.lv/',
   showLangugagePicker: true,
   dynamicColorsEnabled: false,
-  fixedColorTheme: "light",
+  fixedColorTheme: 'light',
   notificationsEnabled: true,
   notificationURL:
-    "https://sz67dgtuqra7xfnybudiwv6moy.appsync-api.eu-west-1.amazonaws.com/graphql",
+    'https://sz67dgtuqra7xfnybudiwv6moy.appsync-api.eu-west-1.amazonaws.com/graphql',
   notificationAPIKEY: Constants.manifest.extra.apiKey,
   // dark (FOR LIGHT THEMES), light (DARK THEMES), auto
-  statusBar: "dark",
+  statusBar: 'dark',
   uploadAllNotifications: true,
-};
+  subscription: 'premuim',
+}
